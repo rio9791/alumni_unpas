@@ -3,12 +3,11 @@
 # Table name: job_vacancies
 #
 #  id                :integer          not null, primary key
+#  company_id        :integer
 #  position          :string
 #  description       :string
 #  due_date          :date
 #  visible           :boolean
-#  created_at        :datetime         not null
-#  updated_at        :datetime         not null
 #  company_name      :string
 #  location          :string
 #  level             :string
@@ -17,7 +16,9 @@
 #  salary_range_max  :decimal(, )
 #  job_type          :string
 #  negotiable_salary :boolean          default(TRUE)
-#  about_company     :text
+#  slug              :string
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
 #
 
 class JobVacancy < ActiveRecord::Base

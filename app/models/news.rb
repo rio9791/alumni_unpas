@@ -5,11 +5,11 @@
 #  id         :integer          not null, primary key
 #  title      :string
 #  content    :text
+#  visibility :boolean
+#  slug       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  visible    :boolean          default(TRUE)
 #  cover      :string
-#  slug       :string
 #
 
 class News < ActiveRecord::Base

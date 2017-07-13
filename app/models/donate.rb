@@ -5,10 +5,10 @@
 #  id             :integer          not null, primary key
 #  amount         :decimal(, )
 #  file_transfer  :string
+#  recipient_name :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  recipient_name :string
-#  valid          :boolean          default(FALSE)
+#  is_valid       :boolean          default(FALSE)
 #
 
 class Donate < ActiveRecord::Base
