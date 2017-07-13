@@ -7,7 +7,7 @@ section.contact-photo.first-child style=("padding-top: 190px;")
         h1.text-white
           | Donasi untuk kampus UPI
           br/
-          | Kirim ke rekening BCA 873128229 atas nama Yayasan Universitas Perguruan Indonesia
+          | Kirim ke rekening BCA 873128229 atas nama Yayasan Universitas Pasundan
     .photo-form-wrapper.clearfix
       = simple_form_for @donate, url: donations_path, html: { method: :post, multipart: true } do |f|
         - if @donate.errors.any?

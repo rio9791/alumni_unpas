@@ -5,8 +5,8 @@ nav.top-bar
         .utility-inner.clearfix
           span.alt-font
             - if account_signed_in?
-              | Hi #{current_account.display_name},            
-            | #{account_signed_in? ? 'Welcome to ' : ''} Portal Alumni Universitas Pendidikan Indonesia
+              | Hi #{current_account.display_name},
+            | #{account_signed_in? ? 'Welcome to ' : ''} Portal Alumni Universitas Pasundan
           .pull-right
             - unless account_signed_in?
               = link_to 'Login', new_account_session_path, class: 'btn btn-primary login-button btn-xs'
@@ -17,7 +17,7 @@ nav.top-bar
     .row.nav-menu
       .col-sm-3.col-md-2.columns
         = link_to root_path do
-          = image_tag('logo-alumni.png', alt: 'Logo', class: 'logo')
+          = image_tag('logo-unpas.png', alt: 'Logo', class: 'logo')
       .col-sm-9.col-md-10.columns
         ul.menu
           li
@@ -31,10 +31,10 @@ nav.top-bar
               = link_to 'Donasi', donations_path
         ul.social-icons.text-right
           li
-            = link_to 'https://twitter.com/AlumniUPI', target: '_blank' do
+            = link_to 'https://twitter.com/ikaunpas', target: '_blank' do
               i.icon.social_twitter
           li
-            = link_to 'https://www.facebook.com/AlumniUPI', target: '_blank' do
+            = link_to 'https://www.facebook.com/UNPAS.univ', target: '_blank' do
               i.icon.social_facebook
     /! end of row
     .mobile-toggle
