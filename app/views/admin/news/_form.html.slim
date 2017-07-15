@@ -22,7 +22,7 @@
           = f.input :content, label: 'Konten', as: :text, input_html: { class: 'form-control summernote' }
       .col-lg-12
         .col-md-2
-          = f.input :visible, as: :select, collection: News::VISIBILITY, label: 'Tampilkan', input_html: { class: 'form-control' }
+          = f.input :visibility, as: :select, collection: News::VISIBILITY, label: 'Tampilkan', input_html: { class: 'form-control' }
 
   .panel-footer
     = link_to admin_news_index_path, class: 'btn btn-default' do
