@@ -21,7 +21,7 @@
                   td= donate.id
                   td= donate.recipient_name
                   td= number_to_currency(donate.amount, locale: :id)
-                  td= image_tag(donate.file_transfer.thumb.url rescue nil)
+                  td= donate.file_transfer.thumb.blank? ? image_tag('no-image.png', width: 50, height: 50) : image_tag(donate.file_transfer.thumb.url)
                   td
                     = link_to edit_admin_donate_path(donate) do
                       i.fa.fa-pencil
