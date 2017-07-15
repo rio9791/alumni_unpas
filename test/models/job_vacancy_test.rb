@@ -19,6 +19,7 @@
 #  slug              :string
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  about_company     :text
 #
 
 require 'test_helper'
