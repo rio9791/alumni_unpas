@@ -21,7 +21,8 @@ unless JobVacancy.all.size > 0
                               description: Faker::Company.catch_phrase,
                               location: Faker::Address.city,
                               salary_range_min: salary_min,
-                              salary_range_max: (salary_min..increase_salary).to_a.sample})
+                              salary_range_max: (salary_min..increase_salary).to_a.sample,
+                              due_date: Date.today+14})
     puts "Creating jobs.."
   end
 end
