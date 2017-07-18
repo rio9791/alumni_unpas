@@ -38,7 +38,7 @@ class Admin::Accounts::AlumnisController < Admin::ApplicationController
   # POST /admin/accounts/alumnis
   # POST /admin/accounts/alumnis.json
   def create
-    @account = Account.new(alumnis_params)
+    @account = Account.new(alumnis_params_with_password)
 
     respond_to do |format|
       if @account.save
@@ -85,6 +85,17 @@ class Admin::Accounts::AlumnisController < Admin::ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def alumnis_params
       params.require(:account).permit(:email, alumni_attributes: [:full_name, :nickname,
+        :sex, :birth_place, :dob, :address_origin, :address_domicile, :occupation, :cellphone, :bbm, :line_id, :facebook,
+        :website, :twitter, :youtube, family_attributes: [:father_name, :father_birthplace, :father_dob, :father_last_education,
+          :father_occupation, :father_address, :mother_name, :mother_birthplace, :mother_dob, :mother_last_education, :mother_occupation,
+           :mother_address, :number_of_sibling, :sibling_index], college_attributes: [:join_year, :basic_training, :intermediate_training,
+             :advanced_training, :senior_course, :commissariat, :korkom, :branch, :badko, :pb, trainings_attributes: [:id, :name,
+               :_destroy], organizations_attributes: [:id, :name, :position, :description, :_destroy]],
+               previous_education_attributes: [:elementary_school, :junior_high_school, :senior_high_school], university_educations_attributes: [:id, :university_name, :faculty, :major, :year, :graduate, :_destroy]])
+    end
+
+    def alumnis_params_with_password
+      params.require(:account).permit(:email, :password, :password_confirmation, alumni_attributes: [:full_name, :nickname,
         :sex, :birth_place, :dob, :address_origin, :address_domicile, :occupation, :cellphone, :bbm, :line_id, :facebook,
         :website, :twitter, :youtube, family_attributes: [:father_name, :father_birthplace, :father_dob, :father_last_education,
           :father_occupation, :father_address, :mother_name, :mother_birthplace, :mother_dob, :mother_last_education, :mother_occupation,

@@ -24,7 +24,7 @@ class Admin::Accounts::CompaniesController < Admin::ApplicationController
   # POST /admin/accounts/companies
   # POST /admin/accounts/companies.json
   def create
-    @account = Account.new(company_params)
+    @account = Account.new(company_params_with_password)
 
     respond_to do |format|
       if @account.save
@@ -84,6 +84,10 @@ class Admin::Accounts::CompaniesController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
+      params.require(:account).permit(:email, company_attributes: [:id, :name, :field, :address])
+    end
+
+    def company_params_with_password
       params.require(:account).permit(:email, :password, :password_confirmation, company_attributes: [:id, :name, :field, :address])
     end
 

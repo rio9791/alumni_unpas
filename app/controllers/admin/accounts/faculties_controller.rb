@@ -24,7 +24,7 @@ class Admin::Accounts::FacultiesController < Admin::ApplicationController
   # POST /admin/accounts/faculties
   # POST /admin/accounts/faculties.json
   def create
-    @account = Account.new(faculty_params)
+    @account = Account.new(faculty_params_with_password)
 
     respond_to do |format|
       if @account.save
@@ -42,7 +42,7 @@ class Admin::Accounts::FacultiesController < Admin::ApplicationController
   # PATCH/PUT /admin/accounts/faculties/1.json
   def update
     respond_to do |format|
-      if @account.update(admin_accounts_faculty_params)
+      if @account.update(faculty_params)
         format.html { redirect_to admin_accounts_faculties_path, notice: 'Faculty was successfully updated.' }
         format.json { render :show, status: :ok, location: @account }
       else
@@ -84,6 +84,10 @@ class Admin::Accounts::FacultiesController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def faculty_params
+      params.require(:account).permit(:email, faculty_attributes: [:id, :name, :major])
+    end
+
+    def faculty_params_with_password
       params.require(:account).permit(:email, :password, :password_confirmation, faculty_attributes: [:id, :name, :major])
     end
 
