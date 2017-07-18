@@ -21,7 +21,7 @@
                   td= news.id
                   td= news.title
                   td= raw(news.content)
-                  td= news.visible ? 'Tampil' : 'Sembunyi'
+                  td= news.visibility? ? 'Tampil' : 'Sembunyi'
                   td
                     = link_to edit_admin_news_path(news) do
                       i.fa.fa-pencil
