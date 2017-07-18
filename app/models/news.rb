@@ -5,11 +5,11 @@
 #  id         :integer          not null, primary key
 #  title      :string
 #  content    :text
+#  visibility :boolean
+#  slug       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  visible    :boolean          default(TRUE)
 #  cover      :string
-#  slug       :string
 #
 
 class News < ActiveRecord::Base
@@ -19,7 +19,7 @@ class News < ActiveRecord::Base
 
   VISIBILITY = [['Ya', true], ['Tidak', false]]
 
-  scope :displays, -> { where(visible: true) }
+  scope :displays, -> { where(visibility: true) }
 
   validates_presence_of :title, :content, :cover
 end
