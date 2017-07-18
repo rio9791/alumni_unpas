@@ -73,8 +73,7 @@ section.duplicatable-content
             - if job
               .col-md-4.col-sm-12.no-pad
                 .feature-box
-                  .background-image-holder.overlay
-                    = image_tag(Faker::LoremPixel.image("300x300", false, 'business'))
+                  .background-image-holder.overlay                    
                   .inner
                     span.alt-font.text-white Lowongan karir
                     h3.text-white= "#{job.position} di #{job.company_name}"
