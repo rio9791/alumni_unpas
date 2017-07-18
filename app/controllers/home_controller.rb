@@ -2,7 +2,7 @@ class HomeController < ApplicationController
 
   def index
     @news = News.displays
-    @jobs = JobVacancy.available.limit(10)
+    @jobs = JobVacancy.available
   end
 
 end
