@@ -4,7 +4,7 @@ class Accounts::JobsController < Accounts::ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = JobVacancy.paginate(:page => params[:page], :per_page => 50)
+    @jobs = JobVacancy.where(company_name: current_account.company.name).paginate(:page => params[:page], :per_page => 50)
   end
 
   # GET /jobs/1
