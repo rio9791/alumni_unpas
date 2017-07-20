@@ -9,6 +9,14 @@ section.contact-photo.first-child style=("padding-top: 190px;")
           br/
           | Kirim ke rekening BCA 873128229 atas nama Yayasan Universitas Pasundan
     .photo-form-wrapper.clearfix
+      - if @donate.errors.any?
+        .alert.danger
+          span.closebtn onclick="this.parentElement.style.display='none';"  &times;
+          strong Terdapat kesalahan :
+          br
+            ul
+              - @donate.errors.full_messages.each do |error|
+                li= error
       = simple_form_for @donate, url: donations_path, html: { method: :post, multipart: true } do |f|
         - if @donate.errors.any?
           .row
